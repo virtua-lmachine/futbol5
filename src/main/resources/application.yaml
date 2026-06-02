@@ -1,0 +1,25 @@
+spring:
+  application:
+    name: entrenamiento
+  
+  datasource:
+    url: jdbc:mysql://localhost:3306/futbol5_db?createDatabaseIfNotExist=true&useSSL=false&serverTimezone=UTC
+    username: root
+    password: mysql
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.MySQLDialect
+
+# Custom configuration for JWT
+app:
+  jwt:
+    # 256-bit or 512-bit secure HMAC key (minimum 64 characters for HS512)
+    secret: 9a4f2c8d3b7e6f1a8c3d9e0f2a4b6c8d7e9f0a2b4c6d8e0f1a3b5c7d9e1f3a5b
+    expiration-ms: 86400000 # 24 hours
