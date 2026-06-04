@@ -11,18 +11,30 @@ import titulares.entrenamiento.repository.UsuarioRepository;
 import titulares.entrenamiento.security.JwtUtil;
 import titulares.entrenamiento.security.PasswordHasher;
 
+/**
+ * ógica de negocio relacionada con los usuarios, Proporciona las funcionalidades principales de seguridad y acceso,}
+ * incluyendo el registro de nuevos usuarios con contraseñas encriptadas y la autenticación
+ */
 @Service
 public class UsuarioService {
-
+    // persistencia en la base de datos
     private final UsuarioRepository usuarioRepository;
+    // creación, manipulación y validación de tokens basados en JWT
     private final JwtUtil jwtUtil;
 
+    // Constructor para la inyección de dependencias
     @Autowired
     public UsuarioService(UsuarioRepository usuarioRepository, JwtUtil jwtUtil) {
         this.usuarioRepository = usuarioRepository;
         this.jwtUtil = jwtUtil;
     }
 
+    /**
+     * Registra un nuevo usuario, verifica que el nombre de usuario no exista previamente, encripta la
+     *  contraseña utilizando, almacena el registro en la base de datos y genera automáticamente un token de acceso
+     * @param request
+     * @return
+     */
     @Transactional
     public AuthResponse registrar(RegisterRequest request) {
         if (usuarioRepository.findByUsername(request.getUsername()).isPresent()) {
@@ -45,6 +57,13 @@ public class UsuarioService {
                 .build();
     }
 
+    /**
+     * Autentica a un usuario (Login). búsqueda optimizada para verificar la existencia
+     * del usuario. Posteriormente, compara el hash de la contraseña con la almacenada
+     * y genera el token de acceso
+     * * @param request Objeto DTO que contiene las credenciales de acceso (username y password).
+     * @return Un objeto (AuthResponse) con la sesión activa y el token JWT correspondiente.
+     */
     @Transactional(readOnly = true)
     public AuthResponse login(LoginRequest request) {
         Usuario usuario = usuarioRepository.findByUsername(request.getUsername())

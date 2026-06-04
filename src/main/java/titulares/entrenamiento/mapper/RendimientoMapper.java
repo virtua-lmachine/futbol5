@@ -29,7 +29,6 @@ public class RendimientoMapper {
     }
     /**
      * objeto de respuesta de datos
-     * <p>
      * Copia de manera directa el identificador y todas las métricas procesadas del
      * jugador, incluyendo el resultado final calculado
      */
