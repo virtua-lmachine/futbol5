@@ -7,6 +7,10 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+/**
+ * contiene las métricas evaluadas junto con una función para calcular el resultado global
+ *
+ */
 @Entity
 @Table(name = "rendimientos_jugadores")
 @Data
@@ -39,6 +43,7 @@ public class RendimientoJugador {
     @Column(nullable = false)
     private Double resultado;
 
+    // Calcula el resultado global del rendimiento
     public void calcularResultado() {
         this.resultado = (this.potenciaTiro * 0.20) + (this.velocidad * 0.30) + (this.pasesEfectivos * 0.50);
     }

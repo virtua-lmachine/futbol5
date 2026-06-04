@@ -5,6 +5,10 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+/**
+ * Objeto de Transferencia de Dato
+ * empaquetar y transportar únicamente los datos necesarios
+ */
 @Data
 @NoArgsConstructor
 @AllArgsConstructor

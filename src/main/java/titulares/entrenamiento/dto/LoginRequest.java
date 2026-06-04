@@ -3,6 +3,11 @@ package titulares.entrenamiento.dto;
 import jakarta.validation.constraints.NotBlank;
 import lombok.Data;
 
+/**
+ * capturar y validar las
+ *  credenciales de acceso
+ *  modelo de entrada para los endpoints de autenticación
+ */
 @Data
 public class LoginRequest {
 

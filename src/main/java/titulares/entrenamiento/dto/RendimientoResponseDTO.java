@@ -5,6 +5,10 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+/**
+ * desacopla la entidad de persistencia del cliente, permitiendo transferir
+ *  * las métricas
+ */
 @Data
 @NoArgsConstructor
 @AllArgsConstructor

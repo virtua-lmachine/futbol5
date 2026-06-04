@@ -6,6 +6,9 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+/**
+ * perfil de acceso de un usuario
+ */
 @Entity
 @Table(name = "usuarios")
 @Data

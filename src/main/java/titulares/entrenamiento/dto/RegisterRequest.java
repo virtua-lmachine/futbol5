@@ -5,6 +5,10 @@ import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 import titulares.entrenamiento.model.Rol;
 
+/**
+ * utilizado para capturar y validar las
+ * credenciales
+ */
 @Data
 public class RegisterRequest {
 
