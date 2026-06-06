@@ -5,7 +5,11 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import titulares.entrenamiento.filter.JwtFilter;
 import titulares.entrenamiento.security.JwtUtil;
-
+/**
+ * configuración de registrar y configurar los filtros utilizados por la aplicación
+ * Esta configuración permite asociar el filtro JWT a las rutas
+ * protegidas de la API
+ */
 @Configuration
 public class FilterConfig {
 
